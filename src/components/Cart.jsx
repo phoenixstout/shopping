@@ -7,7 +7,6 @@ export default function Cart() {
         <>
         <Navbar />
         <h1>Cart</h1>
-        <Link to={'/'}>Back to shop</Link>
         </>
     )
 }

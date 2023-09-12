@@ -7,8 +7,7 @@ function Shop() {
   return (
     <>
     <Navbar />
-     <div>Da shop</div>
-     <Link to={'./Cart'}>Link</Link>
+     <h1>Da shop</h1>
     </>
   )
 }
