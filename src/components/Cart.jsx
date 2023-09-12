@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom"
-import Navbar from "./Navbar"
+import { CartContext } from "./CartContext";
+import Navbar from "./Navbar";
+import { useContext } from "react";
 
 export default function Cart() {
-
-    return(
-        <>
-        <Navbar />
-        <h1>Cart</h1>
-        </>
-    )
+    const {items, setItems} = useContext(CartContext)
+  return (
+    <>
+      <Navbar />
+      <h1>Cart</h1>
+    </>
+  );
 }
