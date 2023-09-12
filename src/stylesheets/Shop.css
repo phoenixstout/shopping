@@ -4,3 +4,12 @@
   padding: 2rem;
   text-align: center;
 }
+
+.productImg {
+  width: 150px;
+}
+
+.productWrapper {
+  display: flex;
+  flex-direction: column;
+}

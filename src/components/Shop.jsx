@@ -1,20 +1,24 @@
 import "../stylesheets/Shop.css";
 import Navbar from "./Navbar";
 import { CartContext } from "./CartContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Product from "./Product";
+
+const rawUrls = ["https://fakestoreapi.com/products/1"];
 
 function Shop() {
-  const {items, setItems} = useContext(CartContext)
+  const { items, setItems } = useContext(CartContext);
 
-  function handleClick() {
-    setItems(items => [...items, 1])
-  }
 
   return (
     <>
       <Navbar />
       <h1>Da shop</h1>
-      <button onClick={handleClick}>Click Me</button>
+      {
+        rawUrls.map((rawUrl, index) => {
+          return(<Product rawUrl={rawUrl} key={index}/>)
+        })
+      }
     </>
   );
 }
