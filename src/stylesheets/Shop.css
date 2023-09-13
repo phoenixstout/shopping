@@ -26,3 +26,18 @@
   grid-template: repeat(3,1fr) / repeat(3,1fr);
   gap: 15px;
 }
+
+.numInput {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.increaseDecrease {
+  display: flex;
+  flex-direction: column;
+}
+  
+.increaseDecrease button {
+  padding: 0;
+}
