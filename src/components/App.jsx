@@ -5,6 +5,7 @@ import { CartContext } from "./CartContext";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [totalInCart, setTotalInCart] = useState(0)
   const rawUrls = [
     "https://fakestoreapi.com/products/1",
     "https://fakestoreapi.com/products/2",
@@ -27,11 +28,19 @@ function App() {
     }
   }, []);
 
-  let totalInCart = 0
+  useEffect(()=> {
+    for(let product of products) {
+        console.log(product.data)
+        setTotalInCart(totalInCart => totalInCart+product.data.num_in_cart)
+    }
+  }, [products])
+
+
   return (
     <>
       <CartContext.Provider value={{ products, setProducts, totalInCart }}>
         <Router />
+        <button onClick={()=> console.log(products)}>Show products</button>
       </CartContext.Provider>
 
       <div>App</div>

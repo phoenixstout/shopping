@@ -1,20 +1,18 @@
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { useState } from "react";
-import ProductClass from "./ProductClass";
 
 export default function Product({ data }) {
   const { products, setProducts } = useContext(CartContext);
   const [numToAdd, setNumToAdd] = useState(0);
   
   function handleAdd() {
-    let temp = products;
-    for(let product of products) {
-      if(product.id == data.id) {
+    let temp = [...products];
+    for(let product of temp) {
+      if(product.data.id == data.data.id) {
         product.data.num_in_cart += numToAdd
       }
     }
-    console.log('setting products', temp)
     setProducts(temp);
   }
 
@@ -26,13 +24,6 @@ export default function Product({ data }) {
     }
   }
 
-  if (!data) {
-    return (
-      <div className="productWrapper">
-        <div>Loading</div>
-      </div>
-    );
-  }
 
   return (
     <>
