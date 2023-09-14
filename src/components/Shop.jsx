@@ -6,16 +6,17 @@ import Product from "./Product";
 
 
 
-function Shop({data}) {
-  const { items, setItems } = useContext(CartContext);
+function Shop() {
+  const { products, setProducts } = useContext(CartContext);
+  if(!products) return
 
   return (
     <>
       <Navbar />
-      <h1>Da shop</h1>
+      <h1>Shop</h1>
       <div className="productsWrapper">
-        {data.map((rawUrl, index) => {
-          return <Product data={data[0]} key={index} />;
+        {products.map((product, index) => {
+          return <Product data={product} key={index} />;
         })}
       </div>
     </>

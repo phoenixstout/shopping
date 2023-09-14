@@ -4,14 +4,14 @@ import { useContext } from "react";
 import ShowItemInCart from "./ShowItemInCart";
 
 export default function Cart() {
-    const {items, setItems} = useContext(CartContext)
+    const {products, setProducts} = useContext(CartContext)
   return (
     <>
       <Navbar />
       <h1>Cart</h1>
       <div className="cartWrapper">
-        {items.map(item => {
-            return <ShowItemInCart item={item}  key={item.id}/>
+        {products.map(product => {
+            return <ShowItemInCart item={product}  key={product.data.id}/>
         })}
       </div>
     </>
