@@ -1,4 +1,3 @@
-import ProductClass from "./ProductClass";
 import Router from "./Router";
 import { useState, useEffect } from "react";
 import { CartContext } from "./CartContext";
@@ -21,7 +20,7 @@ function App() {
       const products = [];
       Promise.all(promises).then((r) => {
         for (let item of r) {
-          products.push(new ProductClass(item));
+          products.push({...item, num_in_cart:0});
         }
         setProducts(products);
       });
@@ -29,10 +28,11 @@ function App() {
   }, []);
 
   useEffect(()=> {
+    let temp_total = 0
     for(let product of products) {
-        console.log(product.data)
-        setTotalInCart(totalInCart => totalInCart+product.data.num_in_cart)
+        temp_total+=product.num_in_cart
     }
+    setTotalInCart(temp_total)
   }, [products])
 
 
