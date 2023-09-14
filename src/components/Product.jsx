@@ -9,8 +9,8 @@ export default function Product({ data }) {
   function handleAdd() {
     let temp = [...products];
     for(let product of temp) {
-      if(product.data.id == data.data.id) {
-        product.data.num_in_cart += numToAdd
+      if(product.id == data.id) {
+        product.num_in_cart += numToAdd
       }
     }
     setProducts(temp);
@@ -28,7 +28,7 @@ export default function Product({ data }) {
   return (
     <>
       <div className="productWrapper">
-        {data && <img className="productImg" src={data.data.image} />}
+        {data && <img className="productImg" src={data.image} />}
         <div className="numInput">
           <div>{numToAdd}</div>
           <div className="increaseDecrease">

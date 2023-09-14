@@ -11,7 +11,7 @@ export default function Cart() {
       <h1>Cart</h1>
       <div className="cartWrapper">
         {products.map(product => {
-            return <ShowItemInCart item={product}  key={product.data.id}/>
+            return <ShowItemInCart item={product}  key={product.id}/>
         })}
       </div>
     </>
