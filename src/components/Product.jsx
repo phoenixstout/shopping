@@ -10,7 +10,8 @@ export default function Product({ data }) {
     let temp = [...products];
     for(let product of temp) {
       if(product.id == data.id) {
-        product.num_in_cart += numToAdd
+        product.quantity += numToAdd
+        product.total = (product.price*product.quantity)
       }
     }
     setProducts(temp);
@@ -29,6 +30,7 @@ export default function Product({ data }) {
     <>
       <div className="productWrapper">
         {data && <img className="productImg" src={data.image} />}
+        <div className="price">${data.price}</div>
         <div className="numInput">
           <div>{numToAdd}</div>
           <div className="increaseDecrease">
