@@ -1,6 +1,28 @@
 .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
+
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.cart-wrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+}
+
+.total-in-cart {
+  font-weight: 500;
+  font-size: larger;
+}
+

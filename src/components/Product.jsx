@@ -11,7 +11,7 @@ export default function Product({ data }) {
     for(let product of temp) {
       if(product.id == data.id) {
         product.quantity += numToAdd
-        product.total = (product.price*product.quantity)
+        product.total = Number((product.price*product.quantity).toFixed(2))
       }
     }
     setProducts(temp);
