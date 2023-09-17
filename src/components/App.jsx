@@ -8,6 +8,8 @@ function App() {
   const rawUrls = [
     "https://fakestoreapi.com/products/1",
     "https://fakestoreapi.com/products/2",
+    "https://fakestoreapi.com/products/3",
+    "https://fakestoreapi.com/products/4",
   ];
 
   useEffect(() => {
@@ -20,7 +22,7 @@ function App() {
       const products = [];
       Promise.all(promises).then((r) => {
         for (let item of r) {
-          products.push({...item, num_in_cart:0});
+          products.push({...item, quantity:0, total:0});
         }
         setProducts(products);
       });
@@ -30,8 +32,9 @@ function App() {
   useEffect(()=> {
     let temp_total = 0
     for(let product of products) {
-        temp_total+=product.num_in_cart
+        temp_total+=product.quantity
     }
+
     setTotalInCart(temp_total)
   }, [products])
 
@@ -40,10 +43,7 @@ function App() {
     <>
       <CartContext.Provider value={{ products, setProducts, totalInCart }}>
         <Router />
-        <button onClick={()=> console.log(products)}>Show products</button>
       </CartContext.Provider>
-
-      <div>App</div>
     </>
   );
 }
