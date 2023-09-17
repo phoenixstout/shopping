@@ -5,13 +5,13 @@ import { useState } from "react";
 export default function Product({ data }) {
   const { products, setProducts } = useContext(CartContext);
   const [numToAdd, setNumToAdd] = useState(0);
-  
+
   function handleAdd() {
     let temp = [...products];
-    for(let product of temp) {
-      if(product.id == data.id) {
-        product.quantity += numToAdd
-        product.total = Number((product.price*product.quantity).toFixed(2))
+    for (let product of temp) {
+      if (product.id == data.id) {
+        product.quantity += numToAdd;
+        product.total = Number((product.price * product.quantity).toFixed(2));
       }
     }
     setProducts(temp);
@@ -25,6 +25,10 @@ export default function Product({ data }) {
     }
   }
 
+  function handleFormChange(e) {
+    e.preventDefault();
+    this.setNumToAdd(e.target.value)
+  }
 
   return (
     <>
@@ -32,7 +36,9 @@ export default function Product({ data }) {
         {data && <img className="productImg" src={data.image} />}
         <div className="price">${data.price}</div>
         <div className="numInput">
-          <div>{numToAdd}</div>
+          <form action="">
+            <input type="text" onChange={handleFormChange} value={this.numToAdd}></input>
+          </form>
           <div className="increaseDecrease">
             <button onClick={() => handleNum(true)}>+</button>
             <button onClick={() => handleNum(false)}>-</button>
