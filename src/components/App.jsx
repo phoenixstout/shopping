@@ -10,6 +10,12 @@ function App() {
     "https://fakestoreapi.com/products/2",
     "https://fakestoreapi.com/products/3",
     "https://fakestoreapi.com/products/4",
+    "https://fakestoreapi.com/products/5",
+    "https://fakestoreapi.com/products/6",
+    "https://fakestoreapi.com/products/7",
+    "https://fakestoreapi.com/products/8",
+    "https://fakestoreapi.com/products/9",
+    "https://fakestoreapi.com/products/10",
   ];
 
   useEffect(() => {
