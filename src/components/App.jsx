@@ -43,7 +43,6 @@ function App() {
     <>
       <CartContext.Provider value={{ products, setProducts, totalInCart }}>
         <Router />
-        <button onClick={()=> console.table(products)}>Show products</button>
       </CartContext.Provider>
     </>
   );

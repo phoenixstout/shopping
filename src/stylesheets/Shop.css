@@ -52,3 +52,8 @@
 .price {
   font-weight: bold;
 }
+
+.form-input {
+  width: 1.25em;
+  border: none;
+}

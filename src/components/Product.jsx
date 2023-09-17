@@ -18,16 +18,18 @@ export default function Product({ data }) {
   }
 
   function handleNum(up) {
-    if (up) setNumToAdd((numToAdd) => numToAdd + 1);
+    if (up && numToAdd<99) setNumToAdd((numToAdd) => Number(numToAdd + 1));
     if (!up) {
       if (numToAdd == 0) return;
       setNumToAdd((numToAdd) => numToAdd - 1);
     }
   }
 
+
   function handleFormChange(e) {
-    e.preventDefault();
-    this.setNumToAdd(e.target.value)
+    if(isNaN(Number(e.target.value))) return
+    if(Number(e.target.value>99)) return
+    setNumToAdd(Number(e.target.value))
   }
 
   return (
@@ -37,7 +39,7 @@ export default function Product({ data }) {
         <div className="price">${data.price}</div>
         <div className="numInput">
           <form action="">
-            <input type="text" onChange={handleFormChange} value={this.numToAdd}></input>
+            <input type="text" className='form-input' onChange={handleFormChange} value={numToAdd}></input>
           </form>
           <div className="increaseDecrease">
             <button onClick={() => handleNum(true)}>+</button>

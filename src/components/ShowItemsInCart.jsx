@@ -43,7 +43,7 @@ export default function ShowItemsInCart() {
             <th>Quantity</th>
             <th>Price</th>
             <th>Total</th>
-            <th>Delete</th>
+            <th></th>
           </tr>
           {rowData.map((product) => {
             return (
